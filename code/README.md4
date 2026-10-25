@@ -1,0 +1,35 @@
+# Day 4 数据处理任务：特征工程与数据可视化
+
+## 1. 任务说明
+使用 `pandas` 和 `matplotlib` 对 Titanic 格式的数据进行特征转换与可视化分析。处理流程为：将文本特征 `Sex` 映射为数值特征（male->0, female->1），使用 `groupby` 计算男女生存率，并绘制柱状图保存至本地。本练习用于掌握表格数据的特征工程与基础可视化方法。
+
+## 2. 环境与依赖
+- Python 3.9+
+- pandas 1.5+
+- matplotlib 3.5+
+
+在仓库根目录安装依赖：
+`python -m pip install -r teaching/submissions/S111777333/04-feature-visualization/requirements.txt`
+
+## 3. 文件说明
+
+| 文件 | 类型 | 说明 |
+| :--- | :--- | :--- |
+| `day4_visualization.py` | 脚本 | 读取、特征映射、计算生存率并画图的主程序 |
+| `day4_survival_plot.png` | 图片 | 代码运行后生成的男女生存率对比图 |
+| `Day4.md` | 日志 | 实验日志与报错截图记录 |
+| `README.md` | 文档 | 说明文件 |
+| `requirements.txt` | 依赖 | Python 依赖范围 |
+
+## 4. 运行方法与预期结果
+在仓库根目录执行：
+`python teaching/submissions/S111777333/04-feature-visualization/day4_visualization.py`
+
+**预期结果**：
+程序弹出柱状图窗口，直观显示女性存活率远高于男性。同时当前目录下生成 `day4_survival_plot.png` 文件，终端打印出图表保存成功的提示。
+
+## 5. 已知范围与限制
+- 本代码使用 `Path(__file__)` 自动定位脚本所在目录读取 `train.csv`，不受终端当前目录影响。
+- 特征映射仅将性别进行了二值化处理，未对其他类别型特征（如 Embarked 登船港口）进行独热编码（One-Hot Encoding）。
+- 图表仅展示了性别单一维度与存活率的关系，未考虑年龄、舱位等其他混杂因素的统计偏差。
+- 原始实验使用的完整数据为 889 行，最终生成的图片仅作基础特征分析使用。
