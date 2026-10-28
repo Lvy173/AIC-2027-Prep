@@ -1,0 +1,34 @@
+# Day 5 数据处理任务：进阶特征工程与多维度可视化
+
+## 1. 任务说明
+使用 `pandas` 和 `matplotlib` 对 Titanic 数据继续进行深度特征工程与可视化。处理流程为：使用 `pd.cut` 将连续数值 `Age` 划分为四个年龄段（Child, Teen, Adult, Senior），使用多重 `groupby` 计算不同年龄段与性别的交叉生存率，并绘制分组柱状图。本练习用于掌握连续数据的离散化与多维度数据展示。
+
+## 2. 环境与依赖
+- Python 3.9+
+- pandas 1.5+
+- matplotlib 3.5+
+
+在仓库根目录安装依赖：
+`python -m pip install -r teaching/submissions/S111777333/05-advanced-visualization/requirements.txt`
+
+## 3. 文件说明
+
+| 文件 | 类型 | 说明 |
+| :--- | :--- | :--- |
+| `day5_feature.py` | 脚本 | 年龄分箱、多维分组计算生存率并画图的主程序 |
+| `age_sex_survival_plot.png` | 图片 | 代码运行后生成的多维度分组柱状图 |
+| `Day5.md` | 日志 | 实验日志与报错截图记录 |
+| `README.md` | 文档 | 说明文件 |
+| `requirements.txt` | 依赖 | Python 依赖范围 |
+
+## 4. 运行方法与预期结果
+在仓库根目录执行：
+`python teaching/submissions/S111777333/05-advanced-visualization/day5_feature.py`
+
+**预期结果**：
+程序弹出包含 4 个年龄段（横坐标）、每个年龄段两根柱子（男/女）的分组柱状图。同时当前目录下生成 `age_sex_survival_plot.png` 文件，终端打印出多维度的存活率表格及保存成功的提示。
+
+## 5. 已知范围与限制
+- 本代码使用 `Path(__file__)` 自动定位脚本所在目录读取 `train.csv`，不受终端当前目录影响。
+- 年龄分箱的边界（0-12, 13-18, 19-60, 60+）为人为经验设定，未通过算法优化。
+- 图表仅展示了年龄与性别两个维度的交叉，未考虑舱位（Pclass）等其他可能影响生存率的关键因素。
